@@ -1,0 +1,71 @@
+<div class="receta-card" [class.popular]="receta.popular">
+
+
+    <!-- Badge popular, flotando sobre la imagen -->
+    <div class="receta-card__badge" *ngIf="receta.popular">
+      <i class="fa-solid fa-star"></i>
+      Más popular
+    </div>
+
+    <!-- Botón guardar, flotando sobre la imagen -->
+    <button class="receta-card__guardar" [class.guardado]="guardado" (click)="toggleGuardado()"
+      [attr.aria-label]="guardado ? 'Quitar de guardados' : 'Guardar receta'">
+      <i class="fa-regular fa-bookmark"></i>
+    </button>
+  </div>
+
+  <!-- Contenido -->
+  <div class="receta-card__body">
+    <h3 class="receta-card__titulo">{{ receta.nombre }}</h3>
+    <p class="receta-card__descripcion" *ngIf="receta.descripcion">{{ receta.descripcion }}</p>
+
+    <div class="receta-card__meta">
+      <span class="receta-card__meta-item">
+        <i class="fa-regular fa-clock receta-card__meta-icono"></i>
+        {{ receta.tiempo_preparacion }} min
+      </span>
+      <span class="receta-card__separador">|</span>
+      <span class="receta-card__meta-item">
+        <i class="fa-solid fa-utensils receta-card__meta-icono"></i>
+        {{ receta.dificultad }}
+      </span>
+      <span class="receta-card__separador">|</span>
+      <span class="receta-card__meta-item">
+        <i class="fa-solid fa-user-group receta-card__meta-icono"></i>
+        {{ receta.porciones }} porciones
+      </span>
+    </div>
+
+    <button class="receta-card__btn" (click)="toggleInstrucciones()"
+      [attr.aria-label]="mostrarInstrucciones ? 'Ocultar receta' : 'Ver receta completa'">
+      {{ mostrarInstrucciones ? 'Ocultar receta' : 'Ver receta' }}
+      <i class="fa-solid" [ngClass]="iconoInstrucciones"></i>
+    </button>
+
+    <a *ngIf="receta.fuente_url" class="receta-card__link" [href]="receta.fuente_url" target="_blank"
+      rel="noopener noreferrer">
+      Buscar receta similar
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+
+    <div class="receta-card__instrucciones" *ngIf="mostrarInstrucciones">
+      <h4 class="receta-card__instrucciones-titulo">
+        <i class="fa-regular fa-clipboard"></i>
+        Instrucciones
+      </h4>
+      <ol class="receta-card__pasos">
+        <li *ngFor="let paso of receta.instrucciones" class="receta-card__paso">
+          {{ paso }}
+        </li>
+      </ol>
+
+      <h4 class="receta-card__instrucciones-titulo">
+        <i class="fa-solid fa-mortar-pestle"></i>
+        Ingredientes
+      </h4>
+      <ul class="receta-card__lista-ingredientes">
+        <li *ngFor="let ing of receta.ingredientes">{{ ing }}</li>
+      </ul>
+    </div>
+
+  </div>

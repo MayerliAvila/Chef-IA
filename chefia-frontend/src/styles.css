@@ -1,0 +1,77 @@
+/* Reset y base global */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  background: #F0EDE6;
+  color: #1e2d1a;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease;
+}
+
+:root {
+  --bg-app: #f7f5f0;
+  --bg-panel: #ffffff;
+  --bg-chat: #faf9f5;
+  --bg-input: #ffffff;
+  --bg-burbuja-bot: #ffffff;
+  --bg-burbuja-usuario: #d7ecd7;
+  --bg-card: #ffffff;
+  --bg-hover: #eef1e6;
+  --bg-placeholder: linear-gradient(135deg, #f3f5e9, #e9efe0);
+
+  --border-color: #ebe8e0;
+  --border-suave: #ebebeb;
+
+  --texto-principal: #1e2d1a;
+  --texto-secundario: #6b7a62;
+  --texto-meta: #7a8a72;
+
+  --verde-primario: #4a7a4a;
+  --verde-hover: #3d663d;
+  --dorado-popular: #d4a827;
+  --badge-bg: #fef3c7;
+  --badge-color: #92400e;
+
+  --scrollbar-thumb: #ddd;
+
+  color-scheme: light;
+}
+
+html.dark-theme {
+  --bg-app: #14171b;
+  --bg-panel: #1c2024;
+  --bg-chat: #1a1d21;
+  --bg-input: #1c2024;
+  --bg-burbuja-bot: #23272c;
+  --bg-burbuja-usuario: #2d4a34;
+  --bg-card: #1f2327;
+  --bg-hover: #2a2f34;
+  --bg-placeholder: linear-gradient(135deg, #2a2f2a, #23272a);
+
+  --border-color: #2e333a;
+  --border-suave: #2a2f34;
+
+  --texto-principal: #eef1ec;
+  --texto-secundario: #a8b3a4;
+  --texto-meta: #8f9a8b;
+
+  --verde-primario: #5c9c5c;
+  --verde-hover: #6fb56f;
+  --dorado-popular: #e0b940;
+  --badge-bg: #4a3a17;
+  --badge-color: #f0c869;
+
+  --scrollbar-thumb: #3a3f45;
+
+  color-scheme: dark;
+}
+
+html, body {
+
+}

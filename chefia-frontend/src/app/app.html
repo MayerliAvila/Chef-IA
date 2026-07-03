@@ -1,0 +1,18 @@
+<div class="container-app">
+
+    <button
+      class="theme-toggle"
+      (click)="themeService.toggle()"
+      [attr.aria-label]="themeService.oscuro() ? 'Activar modo claro' : 'Activar modo oscuro'">
+      <i class="fa-solid" [ngClass]="themeService.oscuro() ? 'fa-sun' : 'fa-moon'"></i>
+    </button>
+
+    <div class="container-side">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="container-chat">
+        <app-chat></app-chat>
+    </div>
+
+</div>

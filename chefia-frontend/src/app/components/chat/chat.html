@@ -1,0 +1,40 @@
+<div class="chat-panel">
+
+  <div class="chat-header">
+    <div class="chat-header__info">
+      <div class="chat-header__avatar">
+        <img src="/imagens/robot.png" alt="ChefIA" class="chat-header__avatar-img">
+      </div>
+      <div>
+        <p class="chat-header__nombre">Chef-IA</p>
+        <span class="chat-header__estado" [class.cargando]="cargando()">
+          {{ cargando() ? 'Buscando recetas...' : 'En linea' }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-mensajes" #mensajesContainer>
+    <ng-container *ngFor="let msg of historial()">
+
+      <div class="chat-cargando" *ngIf="msg.cargando">
+        <div class="chat-cargando__avatar">
+          <img src="/imagens/robot.png" alt="ChefIA" class="chat-cargando__avatar-img">
+        </div>
+        <div class="chat-cargando__puntos">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <ng-container *ngIf="!msg.cargando">
+        <app-mensaje [mensaje]="msg"></app-mensaje>
+      </ng-container>
+
+    </ng-container>
+  </div>
+
+  <div class="chat-input-area">
+    <app-chat-input (enviarMensaje)="onNuevoMensaje($event)" [disabled]="cargando()"></app-chat-input>
+  </div>
+
+</div>

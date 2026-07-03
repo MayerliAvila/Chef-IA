@@ -1,0 +1,31 @@
+<div class="chat-input" [class.chat-input--deshabilitado]="disabled">
+
+  <div class="chat-input__caja">
+    <input
+      id="chat-input-ingredientes"
+      type="text"
+      class="chat-input__campo"
+      placeholder="Escribe los ingredientes que tienes..."
+      [(ngModel)]="texto"
+      (keydown)="onKeydown($event)"
+      [disabled]="disabled"
+      autocomplete="off"
+    />
+
+    <button
+      id="chat-input-enviar"
+      type="button"
+      class="chat-input__boton"
+      [disabled]="!texto.trim() || disabled"
+      (click)="onEnviar()"
+      aria-label="Enviar ingredientes"
+    >
+      <span class="chat-input__boton-icono">➤</span>
+    </button>
+  </div>
+
+  <p class="chat-input__ayuda">
+    💡 Ejemplo: "tengo carne molida, papa y queso"
+  </p>
+
+</div>

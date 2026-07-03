@@ -1,0 +1,71 @@
+<!-- Mensaje del bot -->
+<div class="mensaje mensaje--bot" *ngIf="mensaje.tipo === 'bot'">
+
+  <div class="mensaje__avatar">
+    <img src="/imagens/robot.png" alt="ChefIA" class="mensaje__avatar-img">
+  </div>
+
+  <div class="mensaje__contenido">
+
+    <div class="mensaje__burbuja mensaje__burbuja--bot">
+
+      <p class="mensaje__texto">
+
+        {{ mensaje.texto }}
+
+      </p>
+
+    </div>
+
+    @if (mensaje.recetas?.length) {
+
+    <div class="mensaje__recetas">
+
+      @for (receta of mensaje.recetas; track receta.nombre) {
+
+      <app-receta-card [receta]="receta">
+      </app-receta-card>
+
+      }
+
+    </div>
+
+
+    }
+
+  </div>
+
+</div>
+
+
+<!-- Usuario -->
+
+<div class="mensaje mensaje--usuario" *ngIf="mensaje.tipo === 'usuario'">
+
+  <div class="mensaje__burbuja mensaje__burbuja--usuario">
+
+    <p class="mensaje__texto">
+
+      {{ mensaje.texto }}
+
+    </p>
+
+    <div class="mensaje__meta" *ngIf="mensaje.hora">
+
+      <span>
+
+        {{ mensaje.hora }}
+
+      </span>
+
+      <span class="mensaje__check" [class.mensaje__check--leido]="mensaje.leido">
+
+        ✓✓
+
+      </span>
+
+    </div>
+
+  </div>
+
+</div>

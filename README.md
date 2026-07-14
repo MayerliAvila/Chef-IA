@@ -6,23 +6,6 @@ La aplicación combina un backend ágil basado en **FastAPI** que utiliza la int
 
 ---
 
-## 🏗️ Arquitectura del Sistema
-
-ChefIA está estructurada bajo una arquitectura desacoplada de Cliente-Servidor:
-
-```mermaid
-graph TD
-    A[Cliente: Angular Frontend] -->|1. POST /api/recetas con texto libre| B[Servidor: FastAPI Backend]
-    B -->|2. Limpieza de texto y extracción de ingredientes| B
-    B -->|3. Prompt estructurado con ingredientes| C[Gemini AI API]
-    C -->|4. Respuesta cruda en JSON| B
-    B -->|5. Sanitización, urls e imágenes default| B
-    B -->|6. Retorna RecetaResponse JSON| A
-    A -->|7. Renderizado dinámico y tarjetas interactivas| A
-```
-
----
-
 ## 🚀 Características Clave
 
 1. **Extracción Inteligente de Ingredientes**: El usuario puede escribir mensajes en lenguaje natural (ej: *"tengo tomates, cebollas y algo de pollo"*). El backend procesa, limpia y extrae los ingredientes automáticamente antes de consultar al modelo de IA.
@@ -160,36 +143,20 @@ Solicita sugerencias de recetas a la IA en base a ingredientes.
 ```
 *Si se proporciona una lista en `"ingredientes"`, se prioriza y utiliza directamente omitiendo la extracción automática por lenguaje natural del campo `"mensaje"`.*
 
-#### Formato de Respuesta Exitosa (Response Body - 200 OK)
-```json
-{
-  "recetas": [
-    {
-      "nombre": "Pollo al horno con papas y salsa de tomate",
-      "descripcion": "Una receta clásica y reconfortante que aprovecha la jugosidad del pollo.",
-      "tiempo_preparacion": 45,
-      "dificultad": "Fácil",
-      "ingredientes": [
-        "2 piezas de pollo",
-        "3 papas medianas en rodajas",
-        "2 tomates triturados",
-        "1 cucharadita de aceite de oliva",
-        "Sal y pimienta al gusto"
-      ],
-      "instrucciones": [
-        "Precalentar el horno a 200°C.",
-        "Colocar las papas en una bandeja para hornear y sazonar.",
-        "Disponer el pollo sobre las papas y bañar con el tomate triturado y el aceite.",
-        "Hornear durante 35-40 minutos hasta que el pollo esté dorado y cocido."
-      ],
-      "porciones": 2,
-      "termino_imagen": "pollo al horno con papas",
-      "imagen_url": "https://source.unsplash.com/640x420/?pollo+al+horno+con+papas+comida+plato",
-      "fuente_url": "https://www.google.com/search?q=receta+Pollo+al+horno+con+papas+y+salsa+de+tomate"
-    }
-  ]
-}
-```
+👀 Vista previa
+Puedes acceder a la aplicación desde el siguiente enlace:
+
+🌐 Aplicación Web
+Frontend: https://chef-ia-mu.vercel.app/
+
+🔗 API REST
+Backend: https://chef-ia-q0bt.onrender.com/
+
+📖 Documentación de la API (Swagger)
+https://chef-ia-q0bt.onrender.com/docs
 
 ---
+
+Capturas de pantalla
+<img width="1335" height="867" alt="image" src="https://github.com/user-attachments/assets/1c615d28-b324-46a6-b0bb-2826ec401882" />
 
